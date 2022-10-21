@@ -1,6 +1,7 @@
 # Tavu App Dev
 
-Tavu is an application on IOS where you can daily share a video that you recently watched
+Tavu is an application on IOS where you can daily share a video that you recently watched on Youtube (history of your 10 last video) with your friends.
+You can like these videos and your friends can do the same.
 
 ## Team Members
 
