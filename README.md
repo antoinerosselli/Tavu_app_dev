@@ -21,5 +21,5 @@ Tavu is an application on IOS where you can daily share a video that you recentl
 - Badge system
 
 ## Wire-frames
-Figma : https://www.figma.com/file/l2a6BpCIuQDNzYim4KUKIo/Tavu?node-id=0%3A1
-Graphical charter : https://docs.google.com/presentation/d/1QwoZtpOfuPuyeNK6HSl68joDkO_x_EWot8pcSrfLGnI/edit?usp=sharing
+- Figma : https://www.figma.com/file/l2a6BpCIuQDNzYim4KUKIo/Tavu?node-id=0%3A1
+- Graphical charter : https://docs.google.com/presentation/d/1QwoZtpOfuPuyeNK6HSl68joDkO_x_EWot8pcSrfLGnI/edit?usp=sharing
