@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  Tavu
+//  TavuApp
 //
-//  Created by Antoine Rosselli on 05/11/2022.
+//  Created by Antoine Rosselli on 28/11/2022.
 //
 
 import UIKit
