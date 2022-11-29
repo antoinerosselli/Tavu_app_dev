@@ -22,6 +22,13 @@ class HomeViewController: UIViewController {
         feedCreator(vname: vname, vchannel: vchannel,minia: minia )
     }
     
+    @IBAction func SignOut(_ sender: Any) {
+        self.defaults.set(nil, forKey: "accessToken")
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let homeViewController = storyBoard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
+                self.present(homeViewController, animated: true, completion: nil)
+    }
+    
     func feedCreator(vname :[String],vchannel :[String], minia :[UIImage?]) {
         var y = 200
         for title in vname {

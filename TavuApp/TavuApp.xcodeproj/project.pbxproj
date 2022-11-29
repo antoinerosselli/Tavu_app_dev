@@ -16,8 +16,9 @@
 		5B02D08D293567FA00521456 /* VideoSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02D08C293567FA00521456 /* VideoSelectController.swift */; };
 		5B02D08F2935680A00521456 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02D08E2935680A00521456 /* HomeViewController.swift */; };
 		5B02D0912935681700521456 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02D0902935681700521456 /* AppDelegate.swift */; };
-		5B02D09A2935694A00521456 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B02D0962935694A00521456 /* LaunchScreen.storyboard */; };
-		5B02D09B2935694A00521456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B02D0982935694A00521456 /* Main.storyboard */; };
+		E34B18932936B3B7002A8356 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = E34B18922936B3B7002A8356 /* GoogleSignIn */; };
+		E3EE923D29356D4100BC1421 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3EE923929356D4100BC1421 /* Main.storyboard */; };
+		E3EE923E29356D4100BC1421 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3EE923B29356D4100BC1421 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,11 +29,11 @@
 		5B02D06D2935651C00521456 /* GroupchangeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupchangeController.swift; sourceTree = "<group>"; };
 		5B02D0802935679E00521456 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5B02D082293567A900521456 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5B02D08C293567FA00521456 /* VideoSelectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoSelectController.swift; path = ../../../tavu/Tavu/Tavu/VideoSelectController.swift; sourceTree = "<group>"; };
-		5B02D08E2935680A00521456 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = ../../../tavu/Tavu/Tavu/HomeViewController.swift; sourceTree = "<group>"; };
-		5B02D0902935681700521456 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../../tavu/Tavu/Tavu/AppDelegate.swift; sourceTree = "<group>"; };
-		5B02D0972935694A00521456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../../tavu/Tavu/Tavu/Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		5B02D0992935694A00521456 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = ../../../tavu/Tavu/Tavu/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5B02D08C293567FA00521456 /* VideoSelectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSelectController.swift; sourceTree = "<group>"; };
+		5B02D08E2935680A00521456 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5B02D0902935681700521456 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E3EE923A29356D4100BC1421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E3EE923C29356D4100BC1421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E34B18932936B3B7002A8356 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,10 +70,10 @@
 				5B02D0692935651C00521456 /* GlobalInfo.swift */,
 				5B02D06D2935651C00521456 /* GroupchangeController.swift */,
 				5B02D082293567A900521456 /* ViewController.swift */,
+				E3EE923B29356D4100BC1421 /* LaunchScreen.storyboard */,
+				E3EE923929356D4100BC1421 /* Main.storyboard */,
 				5B02D0902935681700521456 /* AppDelegate.swift */,
 				5B02D0682935651C00521456 /* GroupViewController.swift */,
-				5B02D0962935694A00521456 /* LaunchScreen.storyboard */,
-				5B02D0982935694A00521456 /* Main.storyboard */,
 				5B02D08E2935680A00521456 /* HomeViewController.swift */,
 				5B02D0802935679E00521456 /* SceneDelegate.swift */,
 				5B02D08C293567FA00521456 /* VideoSelectController.swift */,
@@ -96,6 +98,9 @@
 			dependencies = (
 			);
 			name = TavuApp;
+			packageProductDependencies = (
+				E34B18922936B3B7002A8356 /* GoogleSignIn */,
+			);
 			productName = TavuApp;
 			productReference = 5B02D042293564AE00521456 /* TavuApp.app */;
 			productType = "com.apple.product-type.application";
@@ -125,6 +130,9 @@
 				Base,
 			);
 			mainGroup = 5B02D039293564AE00521456;
+			packageReferences = (
+				E34B18912936B3B7002A8356 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
 			productRefGroup = 5B02D043293564AE00521456 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -139,9 +147,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5B02D09A2935694A00521456 /* LaunchScreen.storyboard in Resources */,
+				E3EE923E29356D4100BC1421 /* LaunchScreen.storyboard in Resources */,
 				5B02D04F293564B000521456 /* Assets.xcassets in Resources */,
-				5B02D09B2935694A00521456 /* Main.storyboard in Resources */,
+				E3EE923D29356D4100BC1421 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,20 +174,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5B02D0962935694A00521456 /* LaunchScreen.storyboard */ = {
+		E3EE923929356D4100BC1421 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5B02D0972935694A00521456 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		5B02D0982935694A00521456 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5B02D0992935694A00521456 /* Base */,
+				E3EE923A29356D4100BC1421 /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E3EE923B29356D4100BC1421 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3EE923C29356D4100BC1421 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -307,7 +315,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 292ZWJ5UG6;
+				DEVELOPMENT_TEAM = HH829RL3K5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TavuApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -337,7 +345,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 292ZWJ5UG6;
+				DEVELOPMENT_TEAM = HH829RL3K5;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TavuApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -380,6 +388,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E34B18912936B3B7002A8356 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E34B18922936B3B7002A8356 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E34B18912936B3B7002A8356 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5B02D03A293564AE00521456 /* Project object */;
 }

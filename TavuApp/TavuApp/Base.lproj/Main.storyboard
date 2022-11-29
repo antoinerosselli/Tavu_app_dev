@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--ViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="TavuApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" userLabel="ViewController" customClass="ViewController" customModule="TavuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,7 +28,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="ConnectGoogle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rQD-IF-5re"/>
-                                    <segue destination="bfO-WT-f0V" kind="show" id="eQd-I5-00Q"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tavu" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kvV-L6-nUY">
@@ -192,10 +191,10 @@
             </objects>
             <point key="canvasLocation" x="1940" y="-660"/>
         </scene>
-        <!--Home View Controller-->
+        <!--HomeViewController-->
         <scene sceneID="NfY-q2-WO1">
             <objects>
-                <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="bfO-WT-f0V" customClass="HomeViewController" customModule="TavuApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="bfO-WT-f0V" userLabel="HomeViewController" customClass="HomeViewController" customModule="TavuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fl2-rs-4eL">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,6 +249,19 @@
                                     <segue destination="0xB-Gh-Uoh" kind="show" id="cuG-28-lOe"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSh-Nn-EwC">
+                                <rect key="frame" x="16" y="772" width="97" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Sign Out">
+                                    <color key="baseBackgroundColor" systemColor="systemRedColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="SignOut:" destination="bfO-WT-f0V" eventType="touchUpInside" id="1tB-cy-WKh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DEC-BD-C7F"/>
                         <color key="backgroundColor" red="0.15686270590000001" green="0.15686270590000001" blue="0.15686270590000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -296,7 +308,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="eQd-I5-00Q"/>
         <segue reference="9fH-Px-qyD"/>
     </inferredMetricsTieBreakers>
     <resources>
