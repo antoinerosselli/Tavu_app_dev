@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleSignIn
+import OAuthSwift
 
 class ViewController: UIViewController {
 
@@ -15,7 +16,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
 
             let fullName = user.profile?.name
             let username = fullName
-            print(username)
+            let googleId = user.userID
             user.authentication.do { authentication, error in
                 guard error == nil else { return }
                 guard let authentication = authentication else { return }
@@ -46,9 +46,13 @@ class ViewController: UIViewController {
                 let accessToken = authentication.accessToken
                 self.defaults.set(idToken, forKey: "idToken")
                 self.defaults.set(accessToken, forKey: "accessToken")
-                // Send ID token to backend (example below).
+                self.defaults.set(googleId, forKey: "googleId")
+                self.defaults.set("638c81b39e2d4600ad8a33c3", forKey: "groupId")
+                print(accessToken)
                 }
             self.defaults.set(username, forKey: "username")
+            let isLoged = Service().login(googleId: googleId!, username: username!)
+            print(isLoged)
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                     self.present(homeViewController, animated: true, completion: nil)

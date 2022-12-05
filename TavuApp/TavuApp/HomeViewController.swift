@@ -11,15 +11,32 @@ import SwiftUI
 class HomeViewController: UIViewController {
     
     let defaults = UserDefaults.standard
+    let youtubeService = Youtube()
+    let tavuService = Service()
+    var videoFeed: [Video] = []
+    var userHasPost: Bool = false
     @IBOutlet weak var username: UILabel!
-        
+    @IBOutlet weak var addVideo: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let userId = defaults.string(forKey: "googleId")
+        tavuService.userHasPostedToday(userId: userId!) { isPosted in
+            self.userHasPost = isPosted
+        }
+        print(userHasPost)
+        tavuService.getGroupVideo { videoList in
+            self.videoFeed = videoList
+        }
         username.text = defaults.string(forKey: "username")
-        let vname = ["video1","video2","video1","video2","video1","video2","video1","video2"]
-        let vchannel = ["funguys","cooldude","funguys","cooldude","funguys","cooldude","funguys","cooldude"]
-        let minia = [UIImage(named: "photo1"),UIImage(named: "photo1"),UIImage(named: "photo1"),UIImage(named: "photo1"),UIImage(named: "photo1"),UIImage(named: "photo1"),UIImage(named: "photo1"),UIImage(named: "photo1")]
-        feedCreator(vname: vname, vchannel: vchannel,minia: minia )
+            }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if (userHasPost) {
+            addVideo.isUserInteractionEnabled = false
+            addVideo.setTitle("Posted", for: .normal)
+        }
+        feedCreator(videos: videoFeed)
     }
     
     @IBAction func SignOut(_ sender: Any) {
@@ -29,32 +46,35 @@ class HomeViewController: UIViewController {
                 self.present(homeViewController, animated: true, completion: nil)
     }
     
-    func feedCreator(vname :[String],vchannel :[String], minia :[UIImage?]) {
+    func feedCreator(videos: [Video]) {
         var y = 200
-        for title in vname {
+        
+        for video in videos {
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 31))
             label.center = CGPoint(x: 240, y: y)
             label.textAlignment = .left
             label.font = label.font.withSize(20)
-            label.text = title
+            label.text = video.title
             self.view.addSubview(label)
             y = y + 70
         }
         y = 225
-        for channelName in vchannel {
+        for video in videos {
             let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 31))
             label.center = CGPoint(x: 240, y: y)
             label.textAlignment = .left
             label.font = label.font.withSize(10)
-            label.text = channelName
+            label.text = video.channelName
             self.view.addSubview(label)
             y = y + 70
         }
         y = 170
-        for picture in minia {
+        for video in videos {
             var imageView : UIImageView
             imageView  = UIImageView(frame:CGRectMake(10, CGFloat(y), 120, 70));
-            imageView.image = picture
+            let url = URL(string: video.miniature)
+            let data = try? Data(contentsOf: url!)
+            imageView.image = UIImage(data: data!)
             self.view.addSubview(imageView)
             y = y + 72
         }

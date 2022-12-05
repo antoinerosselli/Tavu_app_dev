@@ -12,6 +12,14 @@
 				<string>com.googleusercontent.apps.687072614508-mbvflh3p6947286op333i8d7cfnttm40</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>tavu</string>
+			</array>
+		</dict>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

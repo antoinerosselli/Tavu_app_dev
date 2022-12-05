@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleSignIn
+import OAuthSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -43,17 +44,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       _ app: UIApplication,
       open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]
     ) -> Bool {
-      var handled: Bool
+        var handled: Bool
 
-      handled = GIDSignIn.sharedInstance.handle(url)
-      if handled {
-        return true
-      }
+          handled = GIDSignIn.sharedInstance.handle(url)
+          if handled {
+            return true
+          }
 
-      // Handle other custom URL types.
+          // Handle other custom URL types.
 
-      // If not handled by this app, return false.
-      return false
+          // If not handled by this app, return false.
+          return false
     }
 }
 

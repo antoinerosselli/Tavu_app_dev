@@ -16,7 +16,15 @@
 		5B02D08D293567FA00521456 /* VideoSelectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02D08C293567FA00521456 /* VideoSelectController.swift */; };
 		5B02D08F2935680A00521456 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02D08E2935680A00521456 /* HomeViewController.swift */; };
 		5B02D0912935681700521456 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B02D0902935681700521456 /* AppDelegate.swift */; };
+		E3141A322939863B001A1DB6 /* OAuthSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E3141A312939863B001A1DB6 /* OAuthSwift */; };
+		E3141A392939A45A001A1DB6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3141A382939A45A001A1DB6 /* String+Extensions.swift */; };
+		E3141A3D2939AFE9001A1DB6 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3141A3C2939AFE9001A1DB6 /* Video.swift */; };
 		E34B18932936B3B7002A8356 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = E34B18922936B3B7002A8356 /* GoogleSignIn */; };
+		E371870E293C066F00341E78 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = E371870D293C066F00341E78 /* Group.swift */; };
+		E3718712293C06C100341E78 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718711293C06C100341E78 /* User.swift */; };
+		E3718714293C09FC00341E78 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718713293C09FC00341E78 /* Service.swift */; };
+		E3718716293C0C0C00341E78 /* PostedVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3718715293C0C0C00341E78 /* PostedVideo.swift */; };
+		E3B9891E2937011300104855 /* Youtube.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B9891D2937011300104855 /* Youtube.swift */; };
 		E3EE923D29356D4100BC1421 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3EE923929356D4100BC1421 /* Main.storyboard */; };
 		E3EE923E29356D4100BC1421 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3EE923B29356D4100BC1421 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -32,6 +40,13 @@
 		5B02D08C293567FA00521456 /* VideoSelectController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoSelectController.swift; sourceTree = "<group>"; };
 		5B02D08E2935680A00521456 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		5B02D0902935681700521456 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E3141A382939A45A001A1DB6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		E3141A3C2939AFE9001A1DB6 /* Video.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		E371870D293C066F00341E78 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		E3718711293C06C100341E78 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E3718713293C09FC00341E78 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		E3718715293C0C0C00341E78 /* PostedVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostedVideo.swift; sourceTree = "<group>"; };
+		E3B9891D2937011300104855 /* Youtube.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Youtube.swift; sourceTree = "<group>"; };
 		E3EE923A29356D4100BC1421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E3EE923C29356D4100BC1421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3141A322939863B001A1DB6 /* OAuthSwift in Frameworks */,
 				E34B18932936B3B7002A8356 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +83,8 @@
 		5B02D044293564AE00521456 /* TavuApp */ = {
 			isa = PBXGroup;
 			children = (
+				E3141A3A2939AFB9001A1DB6 /* Model */,
+				E3141A372939A438001A1DB6 /* Extensions */,
 				5B02D0692935651C00521456 /* GlobalInfo.swift */,
 				5B02D06D2935651C00521456 /* GroupchangeController.swift */,
 				5B02D082293567A900521456 /* ViewController.swift */,
@@ -78,8 +96,29 @@
 				5B02D0802935679E00521456 /* SceneDelegate.swift */,
 				5B02D08C293567FA00521456 /* VideoSelectController.swift */,
 				5B02D04E293564B000521456 /* Assets.xcassets */,
+				E3B9891D2937011300104855 /* Youtube.swift */,
+				E3718713293C09FC00341E78 /* Service.swift */,
 			);
 			path = TavuApp;
+			sourceTree = "<group>";
+		};
+		E3141A372939A438001A1DB6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E3141A382939A45A001A1DB6 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E3141A3A2939AFB9001A1DB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E3141A3C2939AFE9001A1DB6 /* Video.swift */,
+				E371870D293C066F00341E78 /* Group.swift */,
+				E3718711293C06C100341E78 /* User.swift */,
+				E3718715293C0C0C00341E78 /* PostedVideo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -100,6 +139,7 @@
 			name = TavuApp;
 			packageProductDependencies = (
 				E34B18922936B3B7002A8356 /* GoogleSignIn */,
+				E3141A312939863B001A1DB6 /* OAuthSwift */,
 			);
 			productName = TavuApp;
 			productReference = 5B02D042293564AE00521456 /* TavuApp.app */;
@@ -132,6 +172,7 @@
 			mainGroup = 5B02D039293564AE00521456;
 			packageReferences = (
 				E34B18912936B3B7002A8356 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				E3141A302939863B001A1DB6 /* XCRemoteSwiftPackageReference "OAuthSwift" */,
 			);
 			productRefGroup = 5B02D043293564AE00521456 /* Products */;
 			projectDirPath = "";
@@ -160,11 +201,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3718712293C06C100341E78 /* User.swift in Sources */,
+				E3718714293C09FC00341E78 /* Service.swift in Sources */,
+				E3141A392939A45A001A1DB6 /* String+Extensions.swift in Sources */,
+				E3718716293C0C0C00341E78 /* PostedVideo.swift in Sources */,
+				E3B9891E2937011300104855 /* Youtube.swift in Sources */,
 				5B02D083293567A900521456 /* ViewController.swift in Sources */,
+				E371870E293C066F00341E78 /* Group.swift in Sources */,
 				5B02D0812935679E00521456 /* SceneDelegate.swift in Sources */,
 				5B02D06F2935651C00521456 /* GroupViewController.swift in Sources */,
 				5B02D0912935681700521456 /* AppDelegate.swift in Sources */,
 				5B02D08F2935680A00521456 /* HomeViewController.swift in Sources */,
+				E3141A3D2939AFE9001A1DB6 /* Video.swift in Sources */,
 				5B02D0732935651C00521456 /* GlobalInfo.swift in Sources */,
 				5B02D0712935651C00521456 /* GroupchangeController.swift in Sources */,
 				5B02D08D293567FA00521456 /* VideoSelectController.swift in Sources */,
@@ -390,6 +438,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		E3141A302939863B001A1DB6 /* XCRemoteSwiftPackageReference "OAuthSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OAuthSwift/OAuthSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 		E34B18912936B3B7002A8356 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
@@ -401,6 +457,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		E3141A312939863B001A1DB6 /* OAuthSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E3141A302939863B001A1DB6 /* XCRemoteSwiftPackageReference "OAuthSwift" */;
+			productName = OAuthSwift;
+		};
 		E34B18922936B3B7002A8356 /* GoogleSignIn */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = E34B18912936B3B7002A8356 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
