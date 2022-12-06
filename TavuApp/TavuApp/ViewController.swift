@@ -12,7 +12,9 @@ import OAuthSwift
 class ViewController: UIViewController {
 
     let defaults = UserDefaults.standard
+    let youtubeScope = "https://www.googleapis.com/auth/youtube.readonly"
     let signInConfig = GIDConfiguration(clientID: "687072614508-mbvflh3p6947286op333i8d7cfnttm40.apps.googleusercontent.com")
+    var isScoped: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +30,7 @@ class ViewController: UIViewController {
         }
     }
     @IBAction func YoutubeScope(_ sender: Any) {
-        let additionalScopes = ["https://www.googleapis.com/auth/youtube.readonly"]
+        let additionalScopes = [youtubeScope]
         GIDSignIn.sharedInstance.addScopes(additionalScopes, presenting: self) { user, error in
             guard error == nil else { return }
             guard let user = user else { return }
@@ -48,8 +50,8 @@ class ViewController: UIViewController {
             let username = fullName
             let googleId = user.userID
             user.authentication.do { authentication, error in
-                guard error == nil else { return }
-                guard let authentication = authentication else { return }
+            guard error == nil else { return }
+            guard let authentication = authentication else { return }
 
                 let idToken = authentication.idToken
                 let accessToken = authentication.accessToken
@@ -57,8 +59,18 @@ class ViewController: UIViewController {
                 self.defaults.set(accessToken, forKey: "accessToken")
                 self.defaults.set(googleId, forKey: "googleId")
                 print(accessToken)
-                print(user.grantedScopes)
+                let grantedScopes = user.grantedScopes
+                print(grantedScopes)
+                for scope in grantedScopes! {
+                    print(scope)
+                    if (scope == self.youtubeScope) {
+                        self.isScoped = true
+                    }
                 }
+                print("scoped : \(self.isScoped)")
+                self.defaults.set(self.isScoped, forKey: "scope")
+            }
+    
             self.defaults.set(username, forKey: "username")
             let isLoged = Service().login(googleId: googleId!, username: username!)
             print(isLoged)

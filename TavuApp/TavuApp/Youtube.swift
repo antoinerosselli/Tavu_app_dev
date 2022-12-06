@@ -9,7 +9,7 @@ import Foundation
 
 class Youtube {
     let defaults = UserDefaults.standard
-    let host: String = "http://localhost:3000/"
+    let host: String = "https://tavu-api-production.up.railway.app/"
     let accessToken: String;
     var videos: [Video] = [
         Video(title: "LES PIRES CHUTES DE L’HISTOIRE - Quel sera le meilleur duo ? (ft Billy, Inoxtag, Gotaga, Kamel…)", channelName: "Aminematue", miniature: "https://i.ytimg.com/vi/hbj4Q647I1I/default.jpg"),
@@ -40,14 +40,19 @@ class Youtube {
             print(data)
             if let jsonString = String(data: data!, encoding: .utf8) {
                 let respJson = jsonString.toJSON()  as? [[String:Any]]
-                var videoList: [Video] = []
-            
-                for tmp in 0...4 {
-                    let curr = respJson![tmp]
-                    videoList += [Video(title: curr["title"] as! String, channelName: curr["channel"] as! String, miniature:  curr["miniature"] as! String)]
+                if (respJson == nil) {
+                    onCompletion([])
+                } else {
+                    var videoList: [Video] = []
+                
+                    for tmp in 0...respJson!.count - 1 {
+                        let curr = respJson![tmp]
+                        videoList += [Video(title: curr["title"] as! String, channelName: curr["channel"] as! String, miniature:  curr["miniature"] as! String)]
+                    }
+                    self.videos = videoList
+                    onCompletion(videoList)
                 }
-                self.videos = videoList
-                onCompletion(videoList)
+                
             }
         }
         task.resume()

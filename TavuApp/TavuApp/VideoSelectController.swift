@@ -11,8 +11,10 @@ class VideoSelectController: UIViewController {
     let defaults = UserDefaults.standard
     var Allvideos: [Video] = []
 
+    @IBOutlet weak var videoLiked: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.videoLiked.text = "Fetching..."
         let youtubeService = Youtube()
         let tavuService = Service()
         youtubeService.GetLikedVideo { videoList in
@@ -23,6 +25,11 @@ class VideoSelectController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         do {
             sleep(1)
+        }
+        if (Allvideos.count == 0) {
+            self.videoLiked.text = "No video liked"
+        } else {
+            self.videoLiked.text = ""
         }
         self.vsCreator(vsModel: Allvideos)
     }

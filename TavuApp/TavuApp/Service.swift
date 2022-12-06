@@ -8,7 +8,7 @@
 import Foundation
 
 class Service {
-    let host: String = "http://localhost:3000/"
+    let host: String = "https://tavu-api-production.up.railway.app/"
     let defaults = UserDefaults.standard
     
     let videos: [Video] = [
@@ -31,8 +31,10 @@ class Service {
     
     func joinGroup(groupId: String) -> Bool {
         // Call API with params -> Create a new group in the db
-        let groupId = defaults.string(forKey: "groupId")
+//        let groupId = defaults.string(forKey: "groupId")
         let googleId = defaults.string(forKey: "googleId")
+        print("google id: \(googleId)")
+        print("group id: \(groupId)")
         let parameters: [String: Any] = ["googleId": googleId, "groupId": groupId]
         let url = URL(string: host + "group/join-group")!
         let session = URLSession.shared

@@ -7,6 +7,7 @@ class GroupViewController: UIViewController {
     @IBOutlet weak var n_members: UILabel!
     @IBOutlet weak var idgroup: UILabel!
     
+    @IBOutlet weak var groupfetch: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         let groupId = defaults.string(forKey: "groupId")
@@ -26,6 +27,7 @@ class GroupViewController: UIViewController {
         do {
             usleep(1000000)
         }
+        self.groupfetch.text = ""
         let nb: Int = self.group!.nbMember
         self.n_members.text = String("\(nb)")
        self.idgroup.text = self.group?.name

@@ -23,6 +23,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         let userId = defaults.string(forKey: "googleId")
         let groupId = defaults.string(forKey: "groupId")
+        let scoped = defaults.string(forKey: "scope")
         self.postmsg.text = "Fecthing..."
         if (groupId == nil) {
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -30,10 +31,8 @@ class HomeViewController: UIViewController {
                     self.present(homeViewController, animated: true, completion: nil)
             return
         }
-        tavuService.joinGroup(groupId: groupId!)
         tavuService.userHasPostedToday(userId: userId!) { isPosted in
             self.userHasPost = isPosted
-            print("posted ? callback : \(self.userHasPost)" )
         }
         tavuService.getGroupVideo { videoList in
             self.videoFeed = videoList
@@ -43,9 +42,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         do {
-            sleep(1)
+            usleep(2000000)
         }
-        print("posted ? : \(userHasPost)" )
         if (userHasPost) {
             addVideo.isUserInteractionEnabled = false
             addVideo.setTitle("Posted", for: .normal)
