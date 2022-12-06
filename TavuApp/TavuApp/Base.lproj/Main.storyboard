@@ -37,6 +37,21 @@
                                 <color key="textColor" systemColor="systemRedColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJ7-lV-uBY" propertyAccessControl="none">
+                                <rect key="frame" x="110" y="348" width="184" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add Youtube Scope" cornerStyle="capsule">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleBody"/>
+                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                    <color key="baseBackgroundColor" systemColor="systemGroupedBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="ConnectGoogle:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fLC-h8-1Lh"/>
+                                    <action selector="YoutubeScope:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cwL-tD-WOI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="1" colorSpace="calibratedRGB"/>
@@ -45,7 +60,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="332" y="-6"/>
+            <point key="canvasLocation" x="-134" y="-6"/>
         </scene>
         <!--Group View Controller-->
         <scene sceneID="H0b-Yh-bz5">
@@ -64,7 +79,7 @@
                                 </segments>
                                 <color key="selectedSegmentTintColor" systemColor="systemRedColor"/>
                                 <connections>
-                                    <segue destination="bfO-WT-f0V" kind="show" id="f5T-zd-QnK"/>
+                                    <segue destination="bfO-WT-f0V" kind="show" animates="NO" id="f5T-zd-QnK"/>
                                 </connections>
                             </segmentedControl>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ioe-WI-YR6">
@@ -76,7 +91,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="YvA-nG-9ag" kind="show" id="mum-6k-kIt"/>
+                                    <segue destination="YvA-nG-9ag" kind="show" animates="NO" id="mum-6k-kIt"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h33-8q-r3t">
@@ -99,7 +114,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="no group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3Z-rK-iWb">
-                                <rect key="frame" x="16" y="134" width="127" height="21"/>
+                                <rect key="frame" x="16" y="134" width="237" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
@@ -118,12 +133,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="192-7L-Nlf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1104.6153846153845" y="-660.42654028436016"/>
+            <point key="canvasLocation" x="821.53846153846155" y="-801.18483412322269"/>
         </scene>
-        <!--Groupchange Controller-->
+        <!--GroupChange-->
         <scene sceneID="WkK-Fg-uTI">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="YvA-nG-9ag" customClass="GroupchangeController" customModule="TavuApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GroupChange" modalPresentationStyle="fullScreen" id="YvA-nG-9ag" userLabel="GroupChange" customClass="GroupchangeController" customModule="TavuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TP7-3G-jD1">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,7 +169,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="joinGroup:" destination="YvA-nG-9ag" eventType="touchUpInside" id="Ra0-kc-K9r"/>
-                                    <segue destination="zS9-SQ-j26" kind="show" id="4en-ik-hyc"/>
+                                    <segue destination="zS9-SQ-j26" kind="show" animates="NO" id="4en-ik-hyc"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXE-VA-Ig8">
@@ -167,7 +182,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="joinGroup:" destination="YvA-nG-9ag" eventType="touchUpInside" id="Ta9-Gy-eOE"/>
-                                    <segue destination="zS9-SQ-j26" kind="show" id="n0p-Xh-IbB"/>
+                                    <segue destination="zS9-SQ-j26" kind="show" animates="NO" id="n0p-Xh-IbB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -181,7 +196,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Lk-fz-5Ya" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1940" y="-660"/>
+            <point key="canvasLocation" x="1940" y="-801"/>
         </scene>
         <!--HomeViewController-->
         <scene sceneID="NfY-q2-WO1">
@@ -200,7 +215,7 @@
                                 </segments>
                                 <color key="selectedSegmentTintColor" systemColor="systemRedColor"/>
                                 <connections>
-                                    <segue destination="zS9-SQ-j26" kind="show" id="9fH-Px-qyD"/>
+                                    <segue destination="zS9-SQ-j26" kind="show" animates="NO" id="9fH-Px-qyD"/>
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zNC-yr-wff">
@@ -227,6 +242,15 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EA3-XD-f6s">
                                 <rect key="frame" x="0.0" y="158" width="390" height="593"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nobody posted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IwB-N7-QoU">
+                                        <rect key="frame" x="136" y="8" width="118" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02Q-lG-Xxs">
@@ -238,7 +262,7 @@
                                     <color key="baseBackgroundColor" systemColor="systemRedColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="0xB-Gh-Uoh" kind="show" id="cuG-28-lOe"/>
+                                    <segue destination="0xB-Gh-Uoh" kind="show" animates="NO" id="cuG-28-lOe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSh-Nn-EwC">
@@ -261,12 +285,13 @@
                     <navigationItem key="navigationItem" id="oAq-Gm-guZ"/>
                     <connections>
                         <outlet property="addVideo" destination="02Q-lG-Xxs" id="Pzt-75-QeC"/>
+                        <outlet property="postmsg" destination="IwB-N7-QoU" id="oab-FP-7qI"/>
                         <outlet property="username" destination="4Gr-2h-G8z" id="ldt-Yv-DZQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Iu-Fg-9sk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1104.6153846153845" y="-6.3981042654028437"/>
+            <point key="canvasLocation" x="822" y="-6"/>
         </scene>
         <!--Video Select Controller-->
         <scene sceneID="V8u-sk-MWN">
@@ -301,7 +326,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9fH-Px-qyD"/>
+        <segue reference="4en-ik-hyc"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

@@ -10,7 +10,7 @@ class GroupchangeController: UIViewController {
     @IBOutlet weak var groupJoin: UITextField!
     
     @IBAction func joinGroup(_ sender: Any) {
-        defaults.set(groupJoin.text, forKey: "group_id")
+        defaults.set(groupJoin.text, forKey: "groupId")
 
     }
 }

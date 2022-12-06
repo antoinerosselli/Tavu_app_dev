@@ -27,6 +27,15 @@ class ViewController: UIViewController {
                     self.present(homeViewController, animated: true, completion: nil)
         }
     }
+    @IBAction func YoutubeScope(_ sender: Any) {
+        let additionalScopes = ["https://www.googleapis.com/auth/youtube.readonly"]
+        GIDSignIn.sharedInstance.addScopes(additionalScopes, presenting: self) { user, error in
+            guard error == nil else { return }
+            guard let user = user else { return }
+
+            // Check if the user granted access to the scopes you requested.
+        }
+    }
     
     @IBAction func ConnectGoogle(_ sender: Any) {
         GIDSignIn.sharedInstance.signIn(with: signInConfig, presenting: self) { user, error in
@@ -47,12 +56,22 @@ class ViewController: UIViewController {
                 self.defaults.set(idToken, forKey: "idToken")
                 self.defaults.set(accessToken, forKey: "accessToken")
                 self.defaults.set(googleId, forKey: "googleId")
-                self.defaults.set("638c81b39e2d4600ad8a33c3", forKey: "groupId")
                 print(accessToken)
+                print(user.grantedScopes)
                 }
             self.defaults.set(username, forKey: "username")
             let isLoged = Service().login(googleId: googleId!, username: username!)
             print(isLoged)
+            var groupId = self.defaults.string(forKey: "groupId")
+            if (groupId == nil) {
+                print("c'est nul")
+                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                let homeViewController = storyBoard.instantiateViewController(withIdentifier: "GroupChange") as! GroupchangeController
+                        self.present(homeViewController, animated: true, completion: nil)
+                return
+                //self.defaults.set("638c81b39e2d4600ad8a33c3", forKey: "groupId")
+            }
+            groupId = self.defaults.string(forKey: "groupId")
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
                     self.present(homeViewController, animated: true, completion: nil)

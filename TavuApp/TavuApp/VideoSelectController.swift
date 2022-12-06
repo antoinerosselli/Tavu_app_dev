@@ -21,6 +21,9 @@ class VideoSelectController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        do {
+            sleep(1)
+        }
         self.vsCreator(vsModel: Allvideos)
     }
 
@@ -37,6 +40,9 @@ class VideoSelectController: UIViewController {
         let isPosted = Service().postVideo(userId: googleId!, video: vid!)
         if (isPosted) {
             print("faut close la modal + reload Home")
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeViewController = storyBoard.instantiateViewController(withIdentifier: "HomeViewController") as! HomeViewController
+                    self.present(homeViewController, animated: true, completion: nil)
         }
     }
     

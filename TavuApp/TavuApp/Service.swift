@@ -29,17 +29,88 @@ class Service {
         return Group(id: "1", nbMember: 0, name: "CSC Lab", Members: [])
     }
     
-    func getGroup(groupId: String) -> Group {
-        // Call API with params -> Return a existing group from db
-        let members: [User] = [
-            User(googleId: "123", username: "Florian"),
-            User(googleId: "1234", username: "Antoine")
-        ];
-        return Group(id: groupId, nbMember: members.count, name: "CSC Lab", Members: members)
+    func joinGroup(groupId: String) -> Bool {
+        // Call API with params -> Create a new group in the db
+        let groupId = defaults.string(forKey: "groupId")
+        let googleId = defaults.string(forKey: "googleId")
+        let parameters: [String: Any] = ["googleId": googleId, "groupId": groupId]
+        let url = URL(string: host + "group/join-group")!
+        let session = URLSession.shared
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        
+        do {
+          request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+        } catch let error {
+          print(error.localizedDescription)
+          return true
+        }
+        let task = session.dataTask(with: request) { data, response, error in
+          
+          if let error = error {
+            print("Post Request Error: \(error.localizedDescription)")
+            return
+          }
+
+          guard let httpResponse = response as? HTTPURLResponse,
+                (200...299).contains(httpResponse.statusCode)
+          else {
+            print("Invalid Response received from the server")
+            return
+          }
+          guard let responseData = data else {
+            print("nil Data received from the server")
+            return
+          }
+          
+          do {
+            if let jsonResponse = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers) as? [String: Any] {
+              print(jsonResponse)
+            } else {
+              print("data maybe corrupted or in wrong format")
+              throw URLError(.badServerResponse)
+            }
+          } catch let error {
+            print(error.localizedDescription)
+          }
+        }
+        task.resume()
+        return true;
+    }
+    
+    func getGroup(groupId: String, onCompletion: @escaping (Group?) -> Void) {
+        let url = URL(string: host + "group/" + groupId)!
+        let session = URLSession.shared
+        var request = URLRequest(url: url)
+
+        request.httpMethod = "GET"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        print(request)
+        let task = session.dataTask(with: request) { data, response, error in
+            print(data)
+            if let jsonString = String(data: data!, encoding: .utf8) {
+                let respJson = jsonString.toJSON() as! [String: Any]
+                let groupName = respJson["name"];
+                let membersList = respJson["member"] as! [[String: Any]]
+                var members:[User] = []
+                for list in membersList {
+                    members.append(User(googleId: list["googleId"] as! String, username: list["username"] as! String))
+                }
+                let group: Group = Group(id: respJson["_id"] as! String, nbMember: members.count, name: groupName as! String, Members: members)
+                print(group)
+                onCompletion(group)
+               
+            }
+        }
+        task.resume()
+        
+        onCompletion(nil)
     }
 
     func getGroupVideo(onCompletion: @escaping ([Video]) -> Void) {
-//        let groupId = defaults.string(forKey: "groupId")
         let url = URL(string: host + "posted-video/" + "638c81b39e2d4600ad8a33c3")!
         let session = URLSession.shared
         var request = URLRequest(url: url)
@@ -96,8 +167,7 @@ class Service {
             print("Post Request Error: \(error.localizedDescription)")
             return
           }
-          
-          // ensure there is valid response code returned from this HTTP response
+
           guard let httpResponse = response as? HTTPURLResponse,
                 (200...299).contains(httpResponse.statusCode)
           else {
@@ -112,7 +182,6 @@ class Service {
           do {
             if let jsonResponse = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers) as? [String: Any] {
               print(jsonResponse)
-              // handle json response
             } else {
               print("data maybe corrupted or in wrong format")
               throw URLError(.badServerResponse)
@@ -150,7 +219,7 @@ class Service {
         }
         task.resume()
         
-        onCompletion(true)
+        onCompletion(false)
     }
     
     func login(googleId: String, username: String) {

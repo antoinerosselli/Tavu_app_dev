@@ -16,25 +16,44 @@ class HomeViewController: UIViewController {
     var videoFeed: [Video] = []
     var userHasPost: Bool = false
     @IBOutlet weak var username: UILabel!
+    @IBOutlet weak var postmsg: UILabel!
     @IBOutlet weak var addVideo: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         let userId = defaults.string(forKey: "googleId")
+        let groupId = defaults.string(forKey: "groupId")
+        self.postmsg.text = "Fecthing..."
+        if (groupId == nil) {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let homeViewController = storyBoard.instantiateViewController(withIdentifier: "GroupChange") as! GroupchangeController
+                    self.present(homeViewController, animated: true, completion: nil)
+            return
+        }
+        tavuService.joinGroup(groupId: groupId!)
         tavuService.userHasPostedToday(userId: userId!) { isPosted in
             self.userHasPost = isPosted
+            print("posted ? callback : \(self.userHasPost)" )
         }
-        print(userHasPost)
         tavuService.getGroupVideo { videoList in
             self.videoFeed = videoList
         }
         username.text = defaults.string(forKey: "username")
-            }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
+        do {
+            sleep(1)
+        }
+        print("posted ? : \(userHasPost)" )
         if (userHasPost) {
             addVideo.isUserInteractionEnabled = false
             addVideo.setTitle("Posted", for: .normal)
+        }
+        if (self.videoFeed.count == 0) {
+            self.postmsg.text = "Nobody post"
+        } else {
+            self.postmsg.text = ""
         }
         feedCreator(videos: videoFeed)
     }
